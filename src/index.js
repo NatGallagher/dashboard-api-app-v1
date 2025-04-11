@@ -1,6 +1,7 @@
 const express = require("express");  
 const cors = require("cors");  
-const app = express(); 
+const app = express();
+const bodyParser = require("body-parser"); 
 
 //- node middleware
 app.use(bodyParser.json());
@@ -47,6 +48,20 @@ app.get("/login/:username/:password", (req, res) => {
 });
 
 //-other - POST, DELETE, PUT
+
+app.post("/register", (req, res) => {
+    const _body = req.body;
+    let _msg = `# register route, body: ${JSON.stringify(_body)}`;
+    console.log(_msg);
+    let _return = {};
+    const _username = _body.username;
+    const _password = _body.password;
+    //insert user row 
+    _msg = "* registration successful";
+    _return = { msg: _msg, register: true };
+     res.send(_return);
+});
+
 //-start node exporess web server - ie: live server
 app.listen(SERVER_PORT, ()=>{
     let _msg = "node express websever running at port: " + SERVER_PORT;
