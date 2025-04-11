@@ -33,6 +33,7 @@ app.get("/login/:username/:password", (req, res) => {
     let _msg = `# login route, username: ${_username}, password: ${_password}`;
     console.log(_msg);
      let _data = {};
+     
      //validate login in database 
      _msg = "* login successful";
     _data = { msg: _msg, login: true };
