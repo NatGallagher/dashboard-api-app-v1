@@ -2,6 +2,10 @@ const express = require("express");
 const cors = require("cors");  
 const app = express(); 
 
+//- node middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 //cors allow access to same site or other localhost 
 app.use(cors()) 
 
@@ -33,7 +37,7 @@ app.get("/login/:username/:password", (req, res) => {
     let _msg = `# login route, username: ${_username}, password: ${_password}`;
     console.log(_msg);
      let _data = {};
-     
+
      //validate login in database 
      _msg = "* login successful";
     _data = { msg: _msg, login: true };
