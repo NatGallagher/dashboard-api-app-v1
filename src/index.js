@@ -26,6 +26,12 @@ app.get("/test1", (req,res) => {
     res.send(_msg)
 });
 
+app.get("/login", (req,res) => {
+    const _msg = "# Demo node express api 1.0.0 - login route";
+    console.log(_msg)
+    res.send(_msg)
+});
+
 //-other - POST, DELETE, PUT
 //-start node exporess web server - ie: live server
 app.listen(SERVER_PORT, ()=>{
